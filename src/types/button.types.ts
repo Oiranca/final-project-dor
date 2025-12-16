@@ -1,0 +1,10 @@
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+
+export type ButtonVariant = "primary" | "outline" | "ghost" | "buy";
+export type ButtonSize = "sm" | "md" | "lg";
+
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  leadingIcon?: ReactNode;
+};
