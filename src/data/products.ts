@@ -1,4 +1,4 @@
-import type { Product } from "../types/product.ts";
+import type { Product } from "../types/index.ts";
 
 export const HOTEL_PRODUCTS: Product[] = [
   {

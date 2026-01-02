@@ -1,7 +1,13 @@
 import Button from "./Button";
 import { Card, CardHeader, CardTitle, CardContent } from "./Card";
 import { useCurrencyFormatter } from "../../hooks/useCurrencyFormatter";
-import type { CardsProps } from "../../types/cards";
+import type { Product } from "../../types/index.ts";
+
+type CardsProps = {
+  product: Product;
+  onAddToCart?: (product: Product) => void;
+  onBuyNow?: (product: Product) => void;
+};
 
 const Cards = ({ product, onAddToCart, onBuyNow }: CardsProps) => {
   const formatCurrency = useCurrencyFormatter();
@@ -11,12 +17,12 @@ const Cards = ({ product, onAddToCart, onBuyNow }: CardsProps) => {
         <img
           src={product.image}
           alt={product.name}
-          className="h-40 w-full object-cover"
+          className="h-40 w-full object-cover mb-4"
           loading="lazy"
         />
       ) : (
         <div className="grid h-40 w-full place-items-center bg-slate-800/40 text-slate-400">
-          No photo available
+          No hay foto disponible
         </div>
       )}
 
@@ -33,23 +39,27 @@ const Cards = ({ product, onAddToCart, onBuyNow }: CardsProps) => {
         <p className="text-slate-300">{product.description}</p>
 
         <div className="flex items-baseline justify-between">
-          <span className="text-2xl font-bold">{formatCurrency(product.price)}</span>
+          <span className="text-2xl font-bold">
+            {formatCurrency(product.price)}
+          </span>
         </div>
 
-        <div className="flex gap-2 pt-2">
+        <div className="flex flex-col sm:flex-row gap-2 pt-2">
           <Button
             variant="buy"
             onClick={() => onBuyNow?.(product)}
             leadingIcon={<span aria-hidden>🛒</span>}
+            className="w-full sm:w-auto"
           >
-            Book now
+            <span className="sm:inline">Reservar</span>
           </Button>
           <Button
             variant="outline"
             onClick={() => onAddToCart?.(product)}
             leadingIcon={<span aria-hidden>➕</span>}
+            className="w-full sm:w-auto"
           >
-            Add to cart
+            <span className="sm:inline">Añadir</span>
           </Button>
         </div>
       </CardContent>

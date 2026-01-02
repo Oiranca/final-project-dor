@@ -4,8 +4,18 @@ import CatalogSummaryCard from "../components/catalog/CatalogSummaryCard";
 import CatalogProductGrid from "../components/catalog/CatalogProductGrid";
 import { useCart } from "../hooks/useCart";
 import { useCurrencyFormatter } from "../hooks/useCurrencyFormatter";
-import type { CatalogPageProps } from "../types/catalog.ts";
-import type { Product } from "../types/product.ts";
+import type { Product, SortBy, SortDir, CatalogFiltersState } from "../types/index.ts";
+import type { Dispatch, SetStateAction } from "react";
+
+type CatalogPageProps = {
+  products: Product[];
+  sortBy: SortBy;
+  sortDir: SortDir;
+  setSortBy: Dispatch<SetStateAction<SortBy>>;
+  setSortDir: Dispatch<SetStateAction<SortDir>>;
+  cartTotal: string;
+  filters: CatalogFiltersState;
+};
 
 const CatalogPage = ({
   products,

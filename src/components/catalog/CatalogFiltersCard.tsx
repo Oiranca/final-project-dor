@@ -1,6 +1,11 @@
 import Button from "../ui/Button";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/Card";
-import type { CatalogFiltersCardProps } from "../../types/catalog";
+import type { CatalogFiltersState } from "../../types/index.ts";
+
+type CatalogFiltersCardProps = {
+  filters: CatalogFiltersState;
+  formatCurrency: (value: number) => string;
+  onReset: () => void;
+};
 
 const CatalogFiltersCard = ({ filters, formatCurrency, onReset }: CatalogFiltersCardProps) => {
   const {
@@ -19,13 +24,13 @@ const CatalogFiltersCard = ({ filters, formatCurrency, onReset }: CatalogFilters
   const secondaryOptions = limitedOptions.filter((value) => value < maxPrice);
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Filter products</CardTitle>
-      </CardHeader>
-      <CardContent className="grid gap-4 md:grid-cols-3">
+    <div className="rounded-2xl border border-slate-200/20 bg-white/10 p-6 shadow backdrop-blur">
+      <div className="mb-3">
+        <h2 className="text-xl font-semibold leading-none">Filtrar productos</h2>
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
         <label className="space-y-1 text-sm">
-          <span>Search</span>
+          <span>Buscar</span>
           <input
             type="search"
             value={searchTerm}
@@ -36,7 +41,7 @@ const CatalogFiltersCard = ({ filters, formatCurrency, onReset }: CatalogFilters
         </label>
 
         <label className="space-y-1 text-sm">
-          <span>Category</span>
+          <span>Categoría</span>
           <select
             value={category}
             onChange={(event) => setCategory(event.target.value)}
@@ -44,34 +49,34 @@ const CatalogFiltersCard = ({ filters, formatCurrency, onReset }: CatalogFilters
           >
             {categories.map((cat) => (
               <option key={cat} value={cat}>
-                {cat === allCategoryValue ? "All" : cat}
+                {cat === allCategoryValue ? "Todas" : cat}
               </option>
             ))}
           </select>
         </label>
 
         <label className="space-y-1 text-sm">
-          <span>Max price</span>
+          <span>Precio máximo</span>
           <select
             value={String(priceCap)}
             onChange={(event) => setPriceCap(Number(event.target.value))}
             className="w-full rounded-lg border border-white/10 bg-slate-800/80 px-3 py-2 text-slate-100"
           >
-            <option value={String(maxPrice)}>Any price</option>
+            <option value={String(maxPrice)}>Cualquier precio</option>
             {secondaryOptions.map((option) => (
               <option key={option} value={String(option)}>
-                Up to {formatCurrency(option)}
+                Hasta {formatCurrency(option)}
               </option>
             ))}
           </select>
         </label>
-      </CardContent>
-      <CardContent className="flex justify-end">
-        <Button variant="ghost" onClick={onReset}>
-          Reset filters
+      </div>
+      <div className="flex justify-end mt-4">
+        <Button variant="ghost" onClick={onReset} className="w-full sm:w-auto">
+          Restablecer filtros
         </Button>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };
 

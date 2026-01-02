@@ -1,4 +1,4 @@
-import type { ButtonProps, ButtonVariant, ButtonSize } from "../../types/button.types.ts";
+import type { ButtonProps, ButtonVariant, ButtonSize } from "../../types/index.ts";
 
 const base =
   "inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 disabled:opacity-50 disabled:pointer-events-none";
@@ -6,9 +6,9 @@ const base =
 const variants: Record<ButtonVariant, string> = {
   primary: "bg-indigo-600 text-white hover:bg-indigo-500 focus:ring-indigo-300",
   outline:
-    "border border-white/40 text-white hover:bg-white/10 focus:ring-white/40",
+    "border bg-blue-400 border-white/40 text-white hover:bg-blue-500 focus:ring-white/40",
   ghost: "text-slate-100 hover:bg-white/5 focus:ring-white/20",
-  buy: "bg-emerald-600 text-white hover:bg-emerald-500 focus:ring-emerald-300",
+  buy: "bg-gray-300 text-black hover:bg-white focus:ring-blue-300",
 };
 
 const sizes: Record<ButtonSize, string> = {

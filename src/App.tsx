@@ -1,30 +1,19 @@
-// src/App.tsx
 import { useEffect, useMemo, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-
-// componentes de layout
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
-// páginas
 import CatalogPage from "./pages/Catalog";
 import RoomsPage from "./pages/Rooms";
 import SpaPage from "./pages/Spa";
 import ContactPage from "./pages/Contact";
 import CartPage from "./pages/Cart";
-
-// contexto carrito + tipos
-import { type Product } from "./types/product.ts";
-import type { SortBy, SortDir } from "./types/catalog.ts";
+import type { Product, SortBy, SortDir } from "./types/index.ts";
 import { useCart } from "./hooks/useCart";
 import { useCurrencyFormatter } from "./hooks/useCurrencyFormatter";
-
-// datos estáticos
 import { HOTEL_PRODUCTS } from "./data/products";
 
 const App = () => {
   const formatCurrency = useCurrencyFormatter();
-  // Datos del catálogo
   const [products] = useState<Product[]>(HOTEL_PRODUCTS);
 
   const MAX_INITIAL_PRICE = useMemo(() => {
@@ -89,14 +78,13 @@ const App = () => {
     });
   }, [sortedProducts, priceCap, category, searchTerm]);
 
-  // Carrito (solo para el total formateado)
   const { total } = useCart();
 
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100">
       <Header />
 
-      <main className="mx-auto max-w-6xl p-6">
+      <main className="mx-auto max-w-6xl p-4 sm:p-6">
         <Routes>
           <Route
             path="/catalog"

@@ -1,5 +1,15 @@
 import { useCurrencyFormatter } from "../../hooks/useCurrencyFormatter.ts";
-import type { CartDrawerProps } from "../../types/cartDrawer.ts";
+import type { CartItem } from "../../types/index.ts";
+
+type CartDrawerProps = {
+  open: boolean;
+  items: CartItem[];
+  onClose: () => void;
+  onIncrementItem: (id: string) => void;
+  onDecrementItem: (id: string) => void;
+  onRemoveItem: (id: string) => void;
+  onClearCart: () => void;
+};
 
 const CartDrawer = ({
   open,
@@ -23,7 +33,6 @@ const CartDrawer = ({
       }`}
       aria-hidden={!open}
     >
-      {/* Backdrop */}
       <div
         onClick={onClose}
         className={`absolute inset-0 bg-black/50 transition-opacity ${
@@ -31,14 +40,13 @@ const CartDrawer = ({
         }`}
       />
 
-      {/* Drawer */}
       <aside
-        className={`absolute right-0 top-0 h-full w-[360px] max-w-[90vw] bg-slate-900 text-slate-100 shadow-2xl ring-1 ring-white/10 transition-transform duration-300 ${
+        className={`absolute right-0 top-0 h-full w-full sm:w-[360px] max-w-[90vw] bg-slate-900 text-slate-100 shadow-2xl ring-1 ring-white/10 transition-transform duration-300 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <header className="flex items-center justify-between border-b border-white/10 p-4">
-          <h2 className="text-lg font-semibold">🛒 Cart</h2>
+          <h2 className="text-lg font-semibold">🛒 Carrito</h2>
           <button
             onClick={onClose}
             className="rounded-md px-3 py-1.5 bg-slate-800 hover:bg-slate-700"
@@ -49,7 +57,7 @@ const CartDrawer = ({
 
         <div className="p-4 space-y-3 max-h-[calc(100vh-200px)] overflow-auto">
           {items.length === 0 ? (
-            <p className="text-slate-400">Your cart is empty.</p>
+            <p className="text-slate-400">Tu carrito está vacío.</p>
           ) : (
             items.map((cartEntry) => (
               <div
@@ -77,7 +85,7 @@ const CartDrawer = ({
                       onClick={() => onRemoveItem(cartEntry.product.id)}
                       className="ml-2 text-sm text-rose-400 hover:text-rose-300"
                     >
-                      Remove
+                      Eliminar
                     </button>
                   </div>
                 </div>
@@ -98,14 +106,14 @@ const CartDrawer = ({
               disabled={items.length === 0}
               className="flex-1 rounded-lg border border-white/15 px-4 py-2 hover:bg-white/5 disabled:opacity-50"
             >
-              Empty cart
+              Vaciar carrito
             </button>
             <button
               disabled={items.length === 0}
-              onClick={() => alert("🧾 Proceed to checkout (demo)")}
+              onClick={() => alert("🧾 Proceder al pago (demo)")}
               className="flex-1 rounded-lg bg-emerald-600 px-4 py-2 font-medium hover:bg-emerald-700 disabled:opacity-50"
             >
-              Checkout
+              Pagar
             </button>
           </div>
         </footer>

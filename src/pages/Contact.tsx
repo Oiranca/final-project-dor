@@ -1,21 +1,20 @@
-// src/pages/Contact.tsx
-import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/Card";
+import { CONTACT_INFO } from "../data/info";
 
 const ContactPage = () => {
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Contact</h1>
+      <h1 className="text-2xl font-bold">Contacto</h1>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>How to reach us</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-2 text-slate-300">
-          <p>Email: reservations@hotel.example</p>
-          <p>Phone: +34 900 000 000</p>
-          <p>Hours: 09:00 — 20:00 (CET)</p>
-        </CardContent>
-      </Card>
+      <div className="rounded-2xl border border-slate-200/20 bg-white/10 p-6 shadow backdrop-blur">
+        <div className="mb-3">
+          <h2 className="text-xl font-semibold leading-none">{CONTACT_INFO.title}</h2>
+        </div>
+        <div className="space-y-2 text-slate-300">
+          <p>Email: {CONTACT_INFO.email}</p>
+          <p>Teléfono: {CONTACT_INFO.phone}</p>
+          <p>Horario: {CONTACT_INFO.hours}</p>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,13 @@
 import Cards from "../ui/Cards";
-import type { CatalogGridProps } from "../../types/catalog.types";
+import type { Product } from "../../types/index.ts";
 
-const CatalogProductGrid = ({ products, onAddToCart, onBuyNow }: CatalogGridProps) => (
+type CatalogProductGridProps = {
+  products: Product[];
+  onAddToCart: (product: Product) => void;
+  onBuyNow: (product: Product) => void;
+};
+
+const CatalogProductGrid = ({ products, onAddToCart, onBuyNow }: CatalogProductGridProps) => (
   <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
     {products.map((product) => (
       <Cards

@@ -1,8 +1,9 @@
-// src/pages/Cart.tsx
 import { useCart } from "../hooks/useCart";
-import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/Card";
 import Button from "../components/ui/Button";
-import type { CartPageProps } from "../types/cart.ts";
+
+type CartPageProps = {
+  formatCurrency: (value: number) => string;
+};
 
 const CartPage = ({ formatCurrency }: CartPageProps) => {
   const {
@@ -17,23 +18,27 @@ const CartPage = ({ formatCurrency }: CartPageProps) => {
 
   return (
     <section className="space-y-6">
-      <h2 className="text-2xl font-semibold">Cart</h2>
+      <h2 className="text-2xl font-semibold">Carrito</h2>
 
       {isCartEmpty ? (
-        <Card><CardContent>Your cart is empty.</CardContent></Card>
+        <div className="rounded-2xl border border-slate-200/20 bg-white/10 p-6 shadow backdrop-blur">
+          <p className="text-slate-300">Tu carrito está vacío.</p>
+        </div>
       ) : (
-        <Card>
-          <CardHeader><CardTitle>Summary</CardTitle></CardHeader>
-          <CardContent className="space-y-4">
+        <div className="rounded-2xl border border-slate-200/20 bg-white/10 p-6 shadow backdrop-blur">
+          <div className="mb-3">
+            <h2 className="text-xl font-semibold leading-none">Resumen</h2>
+          </div>
+          <div className="space-y-4">
             {items.map(({ product, quantity }) => (
-              <div key={product.id} className="flex items-center justify-between gap-3 border-b border-white/10 pb-3">
-                <div>
-                  <p className="font-medium">{product.name}</p>
+              <div key={product.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/10 pb-3">
+                <div className="min-w-0 flex-1">
+                  <p className="font-medium truncate">{product.name}</p>
                   <p className="text-slate-400 text-sm">{formatCurrency(product.price)} · {product.tag}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
-                    aria-label="Decrease quantity"
+                    aria-label="Disminuir cantidad"
                     className="h-8 w-8 rounded border border-white/15 bg-slate-900 text-lg leading-none text-white hover:bg-white/10"
                     onClick={() => decrementItemQuantity(product.id)}
                   >
@@ -41,7 +46,7 @@ const CartPage = ({ formatCurrency }: CartPageProps) => {
                   </button>
                   <span className="min-w-6 text-center font-semibold">{quantity}</span>
                   <button
-                    aria-label="Increase quantity"
+                    aria-label="Aumentar cantidad"
                     className="h-8 w-8 rounded border border-white/15 bg-slate-900 text-lg leading-none text-white hover:bg-white/10"
                     onClick={() => incrementItemQuantity(product.id)}
                   >
@@ -51,7 +56,7 @@ const CartPage = ({ formatCurrency }: CartPageProps) => {
                     className="ml-2 text-sm text-rose-400 hover:text-rose-300"
                     onClick={() => removeItemFromCart(product.id)}
                   >
-                    Remove
+                    Eliminar
                   </button>
                 </div>
               </div>
@@ -64,14 +69,14 @@ const CartPage = ({ formatCurrency }: CartPageProps) => {
 
             <div className="flex gap-2">
               <Button variant="ghost" className="flex-1" onClick={clearCartItems}>
-                Empty cart
+                Vaciar carrito
               </Button>
               <Button variant="buy" className="flex-1">
-                Confirm booking
+                Confirmar reserva
               </Button>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       )}
     </section>
   );
