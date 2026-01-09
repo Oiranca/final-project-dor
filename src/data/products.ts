@@ -129,6 +129,7 @@ export const HOTEL_PRODUCTS: Product[] = [
   },
   // 2 Restaurante adicionales
   {
+    id: "wine-tasting-premium",
     name: "Cata de Vinos Premium",
     description:
       "Degustación de 5 vinos selectos con maridaje de quesos artesanales y jamón ibérico.",
@@ -148,6 +149,7 @@ export const HOTEL_PRODUCTS: Product[] = [
   // 2 Ocio adicionales
   {
     id: "golf-day",
+    name: "Día de Golf 18 Hoyos",
     description:
       "Jornada completa en campo de golf 18 hoyos, carrito incluido y almuerzo en club house.",
     price: 110,
@@ -166,6 +168,7 @@ export const HOTEL_PRODUCTS: Product[] = [
   // 4 Servicios adicionales
   {
     id: "airport-transfer",
+    name: "Traslado VIP Aeropuerto",
     description:
       "Servicio de traslado VIP desde/hacia el aeropuerto en vehículo de lujo con conductor.",
     price: 45,
