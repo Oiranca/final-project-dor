@@ -29,23 +29,25 @@ const CatalogFiltersCard = ({ filters, formatCurrency, onReset }: CatalogFilters
         <h2 className="text-xl font-semibold leading-none">Filtrar productos</h2>
       </div>
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-        <label className="space-y-1 text-sm">
+        <label htmlFor="search-input" className="space-y-1 text-sm">
           <span>Buscar</span>
           <input
+            id="search-input"
             type="search"
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}
             placeholder="Suite, spa, brunch..."
-            className="w-full rounded-lg border border-slate-400 bg-blue-50 px-3 py-2 text-slate-900 placeholder:text-slate-500"
+            className="w-full rounded-lg border border-slate-400 bg-blue-50 px-3 py-2 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
         </label>
 
-        <label className="space-y-1 text-sm">
+        <label htmlFor="category-select" className="space-y-1 text-sm">
           <span>Categoría</span>
           <select
+            id="category-select"
             value={category}
             onChange={(event) => setCategory(event.target.value)}
-            className="w-full rounded-lg border border-slate-400 bg-blue-50 px-3 py-2 text-slate-900"
+            className="w-full rounded-lg border border-slate-400 bg-blue-50 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           >
             {categories.map((cat) => (
               <option key={cat} value={cat}>
@@ -55,12 +57,13 @@ const CatalogFiltersCard = ({ filters, formatCurrency, onReset }: CatalogFilters
           </select>
         </label>
 
-        <label className="space-y-1 text-sm">
+        <label htmlFor="price-select" className="space-y-1 text-sm">
           <span>Precio máximo</span>
           <select
+            id="price-select"
             value={String(priceCap)}
             onChange={(event) => setPriceCap(Number(event.target.value))}
-            className="w-full rounded-lg border border-slate-400 bg-blue-50 px-3 py-2 text-slate-900"
+            className="w-full rounded-lg border border-slate-400 bg-blue-50 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           >
             <option value={String(maxPrice)}>Cualquier precio</option>
             {secondaryOptions.map((option) => (
