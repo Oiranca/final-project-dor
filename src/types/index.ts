@@ -16,10 +16,12 @@ export type CartItem = {
 
 export type SortBy = "price" | "name" | "tag";
 export type SortDir = "asc" | "desc";
+export type ViewMode = "grid" | "list";
 
 export type SortChange = {
   sortBy: SortBy;
   sortDir: SortDir;
+  viewMode?: ViewMode;
 };
 
 export type CatalogFiltersState = {
@@ -35,6 +37,8 @@ export type CatalogFiltersState = {
   totalProducts: number;
   visibleProducts: number;
   allCategoryValue: string;
+  viewMode: ViewMode;
+  setViewMode: Dispatch<SetStateAction<ViewMode>>;
 };
 
 export type ButtonVariant = "primary" | "outline" | "ghost" | "buy";

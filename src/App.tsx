@@ -7,7 +7,7 @@ import RoomsPage from "./pages/Rooms";
 import SpaPage from "./pages/Spa";
 import ContactPage from "./pages/Contact";
 import CartPage from "./pages/Cart";
-import type { Product, SortBy, SortDir } from "./types/index.ts";
+import type { Product, SortBy, SortDir, ViewMode } from "./types/index.ts";
 import { useCart } from "./hooks/useCart";
 import { useCurrencyFormatter } from "./hooks/useCurrencyFormatter";
 import { HOTEL_PRODUCTS } from "./data/products";
@@ -24,6 +24,7 @@ const App = () => {
   const ALL_CATEGORY_VALUE = "all";
   const [category, setCategory] = useState<string>(ALL_CATEGORY_VALUE);
   const [searchTerm, setSearchTerm] = useState("");
+  const [viewMode, setViewMode] = useState<ViewMode>("grid");
 
   const priceOptions = useMemo(() => {
     const defaultSteps = [50, 100, 150, 200, 250, 300, 400, 500, 750, 1000, 1500, 2000];
@@ -93,8 +94,10 @@ const App = () => {
                 products={visibleProducts}
                 sortBy={sortBy}
                 sortDir={sortDir}
+                viewMode={viewMode}
                 setSortBy={setSortBy}
                 setSortDir={setSortDir}
+                setViewMode={setViewMode}
                 cartTotal={formatCurrency(total)}
                 filters={{
                   categories,
@@ -109,6 +112,8 @@ const App = () => {
                   totalProducts: sortedProducts.length,
                   visibleProducts: visibleProducts.length,
                   allCategoryValue: ALL_CATEGORY_VALUE,
+                  viewMode,
+                  setViewMode,
                 }}
               />
             }

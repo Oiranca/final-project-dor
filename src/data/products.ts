@@ -17,7 +17,7 @@ export const HOTEL_PRODUCTS: Product[] = [
       "Mini apartamento con cocina integrada, domótica y vistas al jardín botánico interior.",
     price: 145,
     tag: "Habitación",
-    image: "https://images.unsplash.com/photo-1616594039964-1967aec9527f?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "ritual-hammam",
@@ -26,7 +26,7 @@ export const HOTEL_PRODUCTS: Product[] = [
       "Circuito de vapor, exfoliación con jabón negro y degustación de tés orientales.",
     price: 68,
     tag: "Spa",
-    image: "https://images.unsplash.com/photo-1523419409543-0c1df022bddb?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1674749232554-2ac15ced3954?q=80&w=738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "detox-day",
