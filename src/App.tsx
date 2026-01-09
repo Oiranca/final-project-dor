@@ -82,7 +82,7 @@ const App = () => {
   const { total } = useCart();
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100">
+    <div className="min-h-screen bg-blue-200 text-slate-900">
       <Header />
 
       <main className="mx-auto max-w-6xl p-4 sm:p-6">

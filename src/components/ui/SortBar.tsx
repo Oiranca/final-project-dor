@@ -21,8 +21,8 @@ const SortBar = ({ sortBy, sortDir, viewMode, onChange }: SortBarProps) => {
           }
           className={`px-3 py-1 rounded-md border transition-colors ${
             viewMode === "grid"
-              ? "border-emerald-500 bg-emerald-500/20 text-emerald-300"
-              : "border-white/10 bg-slate-800/80 text-slate-400 hover:text-slate-300"
+              ? "border-emerald-600 bg-emerald-100 text-emerald-900"
+              : "border-slate-400 bg-blue-50 text-slate-700 hover:text-slate-900"
           }`}
           title="Vista en grilla"
         >
@@ -38,8 +38,8 @@ const SortBar = ({ sortBy, sortDir, viewMode, onChange }: SortBarProps) => {
           }
           className={`px-3 py-1 rounded-md border transition-colors ${
             viewMode === "list"
-              ? "border-emerald-500 bg-emerald-500/20 text-emerald-300"
-              : "border-white/10 bg-slate-800/80 text-slate-400 hover:text-slate-300"
+              ? "border-emerald-600 bg-emerald-100 text-emerald-900"
+              : "border-slate-400 bg-blue-50 text-slate-700 hover:text-slate-900"
           }`}
           title="Vista en lista"
         >
@@ -49,7 +49,7 @@ const SortBar = ({ sortBy, sortDir, viewMode, onChange }: SortBarProps) => {
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="flex items-center gap-2">
-          <label className="whitespace-nowrap text-slate-300">Ordenar por:</label>
+          <label className="whitespace-nowrap text-slate-800">Ordenar por:</label>
           <select
             value={sortBy}
             onChange={(e) =>
@@ -58,7 +58,7 @@ const SortBar = ({ sortBy, sortDir, viewMode, onChange }: SortBarProps) => {
                 sortDir,
               })
             }
-            className="rounded-md border border-white/10 bg-slate-800/80 px-2 py-1 text-slate-100"
+            className="rounded-md border border-slate-400 bg-blue-50 px-2 py-1 text-slate-900"
           >
             <option value="price">Precio</option>
             <option value="name">Nombre</option>
@@ -67,7 +67,7 @@ const SortBar = ({ sortBy, sortDir, viewMode, onChange }: SortBarProps) => {
         </div>
 
         <div className="flex items-center gap-2">
-          <label className="whitespace-nowrap text-slate-300">Dirección:</label>
+          <label className="whitespace-nowrap text-slate-800">Dirección:</label>
           <select
             value={sortDir}
             onChange={(e) =>
@@ -76,7 +76,7 @@ const SortBar = ({ sortBy, sortDir, viewMode, onChange }: SortBarProps) => {
                 sortDir: e.target.value as SortDir,
               })
             }
-            className="rounded-md border border-white/10 bg-slate-800/80 px-2 py-1 text-slate-100"
+            className="rounded-md border border-slate-400 bg-blue-50 px-2 py-1 text-slate-900"
           >
             <option value="asc">Ascendente</option>
             <option value="desc">Descendente</option>

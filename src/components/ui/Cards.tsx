@@ -21,7 +21,7 @@ const Cards = ({ product, onAddToCart, onBuyNow }: CardsProps) => {
           loading="lazy"
         />
       ) : (
-        <div className="grid h-40 w-full place-items-center bg-slate-800/40 text-slate-400">
+        <div className="grid h-40 w-full place-items-center bg-slate-200 text-slate-700">
           No hay foto disponible
         </div>
       )}
@@ -29,14 +29,14 @@ const Cards = ({ product, onAddToCart, onBuyNow }: CardsProps) => {
       <CardHeader className="flex items-start justify-between">
         <CardTitle className="text-xl">{product.name}</CardTitle>
         {product.tag && (
-          <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-300">
+          <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-900">
             {product.tag}
           </span>
         )}
       </CardHeader>
 
       <CardContent className="space-y-3">
-        <p className="text-slate-300">{product.description}</p>
+        <p className="text-slate-800">{product.description}</p>
 
         <div className="flex items-baseline justify-between">
           <span className="text-2xl font-bold">

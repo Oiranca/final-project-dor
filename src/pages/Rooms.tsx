@@ -12,11 +12,11 @@ const RoomsPage = () => {
     <section className="space-y-6">
       <h2 className="text-2xl font-semibold">Habitaciones</h2>
 
-      <div className="rounded-2xl border border-slate-200/20 bg-white/10 p-6 shadow backdrop-blur">
+      <div className="rounded-2xl border border-slate-300 bg-blue-100 p-6 shadow">
         <div className="mb-3">
           <h2 className="text-xl font-semibold leading-none">{ROOMS_GENERAL_INFO.title}</h2>
         </div>
-        <div className="text-slate-300 space-y-2">
+        <div className="text-slate-800 space-y-2">
           {ROOMS_GENERAL_INFO.paragraphs.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
@@ -33,14 +33,14 @@ const RoomsPage = () => {
                 className="h-40 w-full object-cover"
               />
             ) : (
-              <div className="grid h-40 w-full place-items-center bg-slate-800/40 text-slate-400">
+              <div className="grid h-40 w-full place-items-center bg-slate-200 text-slate-700">
                 No hay foto disponible
               </div>
             )}
             <CardHeader>
               <CardTitle>{room.name}</CardTitle>
             </CardHeader>
-            <CardContent className="text-slate-300">
+            <CardContent className="text-slate-800">
               <p>{room.description}</p>
             </CardContent>
           </Card>

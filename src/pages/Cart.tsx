@@ -21,25 +21,25 @@ const CartPage = ({ formatCurrency }: CartPageProps) => {
       <h2 className="text-2xl font-semibold">Carrito</h2>
 
       {isCartEmpty ? (
-        <div className="rounded-2xl border border-slate-200/20 bg-white/10 p-6 shadow backdrop-blur">
-          <p className="text-slate-300">Tu carrito está vacío.</p>
+        <div className="rounded-2xl border border-slate-300 bg-blue-100 p-6 shadow">
+          <p className="text-slate-800">Tu carrito está vacío.</p>
         </div>
       ) : (
-        <div className="rounded-2xl border border-slate-200/20 bg-white/10 p-6 shadow backdrop-blur">
+        <div className="rounded-2xl border border-slate-300 bg-blue-50 p-6 shadow">
           <div className="mb-3">
             <h2 className="text-xl font-semibold leading-none">Resumen</h2>
           </div>
           <div className="space-y-4">
             {items.map(({ product, quantity }) => (
-              <div key={product.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/10 pb-3">
+              <div key={product.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-300 pb-3">
                 <div className="min-w-0 flex-1">
                   <p className="font-medium truncate">{product.name}</p>
-                  <p className="text-slate-400 text-sm">{formatCurrency(product.price)} · {product.tag}</p>
+                  <p className="text-slate-700 text-sm">{formatCurrency(product.price)} · {product.tag}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
                     aria-label="Disminuir cantidad"
-                    className="h-8 w-8 rounded border border-white/15 bg-slate-900 text-lg leading-none text-white hover:bg-white/10"
+                    className="h-8 w-8 rounded border border-slate-400 bg-blue-50 text-lg leading-none text-slate-900 hover:bg-blue-100"
                     onClick={() => decrementItemQuantity(product.id)}
                   >
                     −
@@ -47,13 +47,13 @@ const CartPage = ({ formatCurrency }: CartPageProps) => {
                   <span className="min-w-6 text-center font-semibold">{quantity}</span>
                   <button
                     aria-label="Aumentar cantidad"
-                    className="h-8 w-8 rounded border border-white/15 bg-slate-900 text-lg leading-none text-white hover:bg-white/10"
+                    className="h-8 w-8 rounded border border-slate-400 bg-blue-50 text-lg leading-none text-slate-900 hover:bg-blue-100"
                     onClick={() => incrementItemQuantity(product.id)}
                   >
                     +
                   </button>
                   <button
-                    className="ml-2 text-sm text-rose-400 hover:text-rose-300"
+                    className="ml-2 text-sm text-rose-600 hover:text-rose-700"
                     onClick={() => removeItemFromCart(product.id)}
                   >
                     Eliminar

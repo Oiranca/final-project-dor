@@ -24,7 +24,7 @@ const CatalogFiltersCard = ({ filters, formatCurrency, onReset }: CatalogFilters
   const secondaryOptions = limitedOptions.filter((value) => value < maxPrice);
 
   return (
-    <div className="rounded-2xl border border-slate-200/20 bg-white/10 p-6 shadow backdrop-blur">
+    <div className="rounded-2xl border border-slate-300 bg-blue-100 p-6 shadow">
       <div className="mb-3">
         <h2 className="text-xl font-semibold leading-none">Filtrar productos</h2>
       </div>
@@ -36,7 +36,7 @@ const CatalogFiltersCard = ({ filters, formatCurrency, onReset }: CatalogFilters
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}
             placeholder="Suite, spa, brunch..."
-            className="w-full rounded-lg border border-white/10 bg-slate-800/80 px-3 py-2 text-slate-100 placeholder:text-slate-500"
+            className="w-full rounded-lg border border-slate-400 bg-blue-50 px-3 py-2 text-slate-900 placeholder:text-slate-500"
           />
         </label>
 
@@ -45,7 +45,7 @@ const CatalogFiltersCard = ({ filters, formatCurrency, onReset }: CatalogFilters
           <select
             value={category}
             onChange={(event) => setCategory(event.target.value)}
-            className="w-full rounded-lg border border-white/10 bg-slate-800/80 px-3 py-2 text-slate-100"
+            className="w-full rounded-lg border border-slate-400 bg-blue-50 px-3 py-2 text-slate-900"
           >
             {categories.map((cat) => (
               <option key={cat} value={cat}>
@@ -60,7 +60,7 @@ const CatalogFiltersCard = ({ filters, formatCurrency, onReset }: CatalogFilters
           <select
             value={String(priceCap)}
             onChange={(event) => setPriceCap(Number(event.target.value))}
-            className="w-full rounded-lg border border-white/10 bg-slate-800/80 px-3 py-2 text-slate-100"
+            className="w-full rounded-lg border border-slate-400 bg-blue-50 px-3 py-2 text-slate-900"
           >
             <option value={String(maxPrice)}>Cualquier precio</option>
             {secondaryOptions.map((option) => (

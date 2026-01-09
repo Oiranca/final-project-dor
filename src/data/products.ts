@@ -73,7 +73,6 @@ export const HOTEL_PRODUCTS: Product[] = [
     tag: "Servicios",
     image: "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=1200&q=80",
   },
-  // 4 Habitaciones adicionales
   {
     id: "executive-room",
     name: "Executive Room Deluxe",
@@ -110,7 +109,6 @@ export const HOTEL_PRODUCTS: Product[] = [
     tag: "Habitación",
     image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80",
   },
-  // 2 Spa adicionales
   {
     id: "massage-therapy",
     name: "Masaje Terapéutico Oriental",
@@ -131,7 +129,6 @@ export const HOTEL_PRODUCTS: Product[] = [
   },
   // 2 Restaurante adicionales
   {
-    id: "wine-pairing",
     name: "Cata de Vinos Premium",
     description:
       "Degustación de 5 vinos selectos con maridaje de quesos artesanales y jamón ibérico.",
@@ -151,7 +148,6 @@ export const HOTEL_PRODUCTS: Product[] = [
   // 2 Ocio adicionales
   {
     id: "golf-day",
-    name: "Golf Day Premium",
     description:
       "Jornada completa en campo de golf 18 hoyos, carrito incluido y almuerzo en club house.",
     price: 110,
@@ -170,7 +166,6 @@ export const HOTEL_PRODUCTS: Product[] = [
   // 4 Servicios adicionales
   {
     id: "airport-transfer",
-    name: "Transfer Privado Aeropuerto",
     description:
       "Servicio de traslado VIP desde/hacia el aeropuerto en vehículo de lujo con conductor.",
     price: 45,
